@@ -8,11 +8,6 @@
     $terulet = '';
     $kerulet = '';
 
-    $red = rand(0, 255);
-    $green = rand(0, 255);
-    $blue = rand(0, 255);
-    
-
     $sikeresSzamolas = false;
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST'){
@@ -57,30 +52,32 @@
 </head>
 <body>
     <?php if (!$sikeresSzamolas) {?>
-    <form method="POST">
-        <div>
-            <label>
-                A téglalap egyik oldala: <br />
-                <input type='number' required name='oldal_a' value="<?php echo isset($_POST["oldal_a"]) ? $_POST["oldal_a"] : ''; ?>">
-            </label>
-            <div class='hibauzenet'><?php echo $aOldalHibaUzenet; ?></div>
-        </div>
-        <div>
-            <label>
-                A téglalap másik oldala: <br />
-                <input type='number' required name='oldal_b' value="<?php echo isset($_POST["oldal_b"]) ? $_POST["oldal_b"] : ''; ?>">
-            </label>
-            <div class='hibauzenet'><?php echo $bOldalHibaUzenet; ?></div>
-        </div>
-        <div>
-            <input type="submit" value="Feldolgoz">
-        </div>
-    </form>
+    <div class="container">
+        <form method="POST">
+            <div class="bg-primary">
+                <label>
+                    A téglalap egyik oldala: <br />
+                    <input type='number' name='oldal_a' value="<?php echo isset($_POST["oldal_a"]) ? $_POST["oldal_a"] : ''; ?>" class="bg-dark">
+                </label>
+                <div class='hibauzenet'><?php echo $aOldalHibaUzenet; ?></div>
+            </div>
+            <div>
+                <label>
+                    A téglalap másik oldala: <br />
+                    <input type='number' name='oldal_b' value="<?php echo isset($_POST["oldal_b"]) ? $_POST["oldal_b"] : ''; ?>">
+                </label>
+                <div class='hibauzenet'><?php echo $bOldalHibaUzenet; ?></div>
+            </div>
+            <div>
+                <input type="submit" value="Feldolgoz">
+            </div>
+        </form>
+    </div>
     <?php } else { ?>
     <p class="sikeres"><?php echo $sikeresUzenet; ?></p>
     <p><?php echo $terulet; ?></p>
     <p><?php echo $kerulet; ?></p>
-    <div id="teglalap" style="width: <?php echo $aOldal?>px; height: <?php echo $bOldal?>px; background-color: rgb(<?php echo $red?>, <?php echo $green?>, <?php echo $blue?>)"></div>
+    <div id="teglalap" style="width: <?php echo $aOldal?>px; height: <?php echo $bOldal?>px;"></div>
     <?php } ?>
 </body>
 </html>
@@ -95,12 +92,12 @@ OSZTÁLYOM: 14S
  
 2. feladatrész:
  - csak akkor fut le a kód, ha a formot elküldted 1 pont/1 pont
- - elkészültek a validációk  3 pont/1 pont
+ - elkészültek a validációk  3 pont/3 pont
  - hibaüzenet csak akkor jelenjen meg, ha ténylegesen is történt validációs hiba 1 pont/1 pont
  - a "Sikeres" üzenet csak akkor jelenjen meg, ha nincs hiba. Ekkor a form ne jelenjen meg. 1 pont/1 pont
  - sikertelen validáció esetén a form-ba töltsük vissza az adatokat 1 pont/1 pont
  
 3. feladatrész:
- - sikeres az eredmény kiíratása: 3 pont/1 pont
+ - sikeres az eredmény kiíratása: 3 pont/3 pont
  - helyesen számoltad a kerületet, területet: 1 pont/1 pont
 -->
